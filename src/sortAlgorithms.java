@@ -152,19 +152,15 @@ public class sortAlgorithms {
     }
 
     void quickSort(int[] arr, int low, int high) {
-        if (low < high) {
+      if (low < high) {
             // Hallar la posición correcta del pivote
-            int j = partitioning(arr, low, high);
-            // Evita recursión en rangos inválidos
-            if (low < j - 1) {
-                quickSort(arr, low, j - 1);
-            }
-            if (j + 1 < high) {
-                quickSort(arr, j + 1, high);
-            }
+            int j = partitioning(arr,low,high);
+            // Ordenar el subarreglo izquierdo, es decir, los elementos menores al pivote
+            quickSort(arr,low,j-1);
+            // Ordenar el subarreglo derecho, es decir, los elementos mayores al pivote
+            quickSort(arr,j+1,high);
         }
     }
-
 }
 
 
